@@ -43,7 +43,7 @@ function Video({ isOpen, toggleSidebar}) {
       };
       
     async function fetchVideos() {
-        const apiKey = 'AIzaSyClsOkxwl4-x8LksNMn2N4UQhRbDUiHdMM';
+        const apiKey = 'AIzaSyAeLgA7VK2mJQ0wOq8cgTP4fh2DYKrDt78';
       try {
         const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
           params: {
@@ -137,7 +137,7 @@ keyboard_voice
         <div style={divStyle} >
         {video.map(i => (//for the videosearched through input box
           <div key={i.id.videoId} className="video-item">
-            <video
+            <iframe
             title={video.snippet.title}
 
               width="320px"
@@ -145,7 +145,7 @@ keyboard_voice
               src={`https://www.youtube.com/embed/${i.id.videoId}`}
               frameBorder="0"
               allowFullScreen
-            ></video>
+            ></iframe>
                         <p>{i.snippet.title} </p>
 
           </div>
@@ -155,14 +155,14 @@ keyboard_voice
         {videos.map(video => (//for default videos shown at the homepage
             
           <div key={video.id.videoId} >
-            <video
+            <iframe
               title={video.snippet.title}
               width="320px"
               height="200px"
               src={`https://www.youtube.com/embed/${video.id.videoId}`}
               frameBorder="0"
               allowFullScreen
-            ></video>
+            ></iframe>
                         <p >{video.snippet.title}</p>
                         <p style={{color:"gray"}}>{formatViews(video.statistics.viewCount)} <sup style={{fontSize:"20px"}}>.</sup>   {formatUploadTime(video.snippet.publishedAt)}</p>
 

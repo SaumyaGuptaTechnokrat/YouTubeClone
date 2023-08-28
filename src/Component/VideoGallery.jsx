@@ -154,7 +154,7 @@ keyboard_voice
         <div style={divStyle}>
         {videos.map(video => (//for default videos shown at the homepage
             
-          <div key={video.id.videoId} >
+          <div key={video.id.videoId} style={{width:"320px"}}>
             <iframe
               title={video.snippet.title}
               width="320px"
@@ -163,7 +163,7 @@ keyboard_voice
               frameBorder="0"
               allowFullScreen
             ></iframe>
-                        <p >{video.snippet.title}</p>
+                        <p id="videoCaption">{video.snippet.title}</p>
                         <p style={{color:"gray"}}>{formatViews(video.statistics.viewCount)} <sup style={{fontSize:"20px"}}>.</sup>   {formatUploadTime(video.snippet.publishedAt)}</p>
 
           </div>

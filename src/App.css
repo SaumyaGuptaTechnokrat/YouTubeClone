@@ -118,3 +118,9 @@ iframe{
   background-color: rgb(39, 39, 39);
   margin: 3px 0;
 }
+#videoCaption{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Set a maximum width to prevent the title from pushing other content */
+}

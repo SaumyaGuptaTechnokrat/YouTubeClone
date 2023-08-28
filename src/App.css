@@ -1,18 +1,10 @@
-.App {
-  text-align: center;
+*{
+  padding: 1.2px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+iframe{
+  border-radius:10px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,15 +16,105 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.search-container {
+  
+  display: flex;
+  align-items: center;
+  width: 668px;
+  margin: 0 27.8%; /* Center the container */
+  padding-bottom: 10px;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search-input {
+  flex: 1;
+  padding: 20px;
+  height: 25px;
+  border: 1px solid #ccc;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;  
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.search-button {
+  border: 1px solid #ccc;
+  color: hsl(0, 0%, 6.7%);
+  background-color: #f5f4f4;
+  padding: 6.5px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.search-button:hover{
+  border-color: #c6c6c6;
+    background-color: #f0f0f0;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.1);
+
+}
+
+.keyboard-voice{
+  margin-left:20px;
+ border-radius: 50%;
+ width: 40px;
+ height: 40px;
+ background-color: #f5f4f4; 
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.keyboard-voice:hover{
+  border-color: #c6c6c6;
+    background-color: #f0f0f0;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.1);
+
+}
+
+/* Sidebar.css */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -160px;
+  width: 230px;
+  height: 100%;
+  background-color: white;
+  overflow-y:auto;
+  border-right: 1px black solid;
+  transition: left 0.3s ease;
+}
+
+.sidebar.open {
+  left: 0;
+}
+
+/* .close-button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+} */
+
+.main-content {
+  margin-left: 30px;
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.pushed {
+  margin-left: 250px;
+}
+
+.toggle-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 999;
+  border: none !important;
+}
+#sidebar{  
+  width: 20px;
+  background-color: rgb(39, 39, 39);
+  margin: 3px 0;
 }

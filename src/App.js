@@ -1,23 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Video from './Component/VideoGallery';
+import Sidebar from './Component/sidebar';
+import { useState } from 'react';
 function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+
+  };  
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+          <header>
+            <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+          </header>
+
+      <Video isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
     </div>
   );
 }

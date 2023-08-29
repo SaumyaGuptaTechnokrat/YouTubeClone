@@ -102,7 +102,7 @@ function Video({ isOpen, toggleSidebar}) {
       
     return (
       <>
-      <header><div className="search-container">
+      <header id="mainHeader"><div className="search-container">
         <input
             type="text"
             value={searchQuery}
@@ -124,50 +124,50 @@ function Video({ isOpen, toggleSidebar}) {
           <div id="sidebar"></div>
           <div id="sidebar"></div> 
       </div>
-      <div className={`main-content ${isOpen ? 'pushed' : ''}`}>
+      <section><div className={`main-content ${isOpen ? 'pushed' : ''}`}>
         
-          <div className="container-fluid" style={{position:"relative", left:"2%"}}>
+        <div className="container-fluid" style={{position:"relative", left:"2%"}}>
 
-              <div className="row">
-              {video.map(i => (//for the videosearched through input box
-                <div key={i.id.videoId} className="col-md-3 mb-3">
-                  <iframe
-                  title={video.snippet.title}
+            <div className="row">
+            {video.map(i => (//for the videosearched through input box
+              <div key={i.id.videoId} className="col-md-3 mb-3">
+                <iframe
+                title={video.snippet.title}
 
-                    width="20vh "
-                    height="9.8958333333333vh"
-                    src={`https://www.youtube.com/embed/${i.id.videoId}`}
-                    frameBorder="0"
-                    allowFullScreen
-                  ></iframe>
-                              <p>{i.snippet.title} </p>
-                              <div class="g-ytsubscribe" data-channel="GoogleDevelopers" data-layout="full" data-count="default"></div>
-                </div>
-              ))}
-              </div>
-          </div>
-          <div className="container-fluid">
-            <div  className="row" id="already">
-            {videos.map(video => (//for default videos shown at the homepage
-                <div key={video.id.videoId}  className={isActive ? 'col-md-4 mb-3' : 'col-md-3 mb-3'} >
-                <iframe 
-                  title={video.snippet.title}
-                  width="338px"
-                  height="190px"
-                  src={`https://www.youtube.com/embed/${video.id.videoId}`}
+                  width="20vh "
+                  height="9.8958333333333vh"
+                  src={`https://www.youtube.com/embed/${i.id.videoId}`}
                   frameBorder="0"
                   allowFullScreen
                 ></iframe>
-                          <div>
-                          <p id="videoCaption">{video.snippet.title}</p>
-                            <p style={{color:"gray"}}>{formatViews(video.statistics.viewCount)} <sup style={{fontSize:"20px"}}>.</sup>   {formatUploadTime(video.snippet.publishedAt)}</p>
-                          </div>
-              </div>         
+                            <p>{i.snippet.title} </p>
+                            <div class="g-ytsubscribe" data-channel="GoogleDevelopers" data-layout="full" data-count="default"></div>
+              </div>
             ))}
             </div>
         </div>
-        
+        <div className="container-fluid">
+          <div  className="row" id="already">
+          {videos.map(video => (//for default videos shown at the homepage
+              <div key={video.id.videoId}  className={isActive ? 'col-md-4 mb-3' : 'col-md-3 mb-3'} >
+              <iframe 
+                title={video.snippet.title}
+                width="338px"
+                height="190px"
+                src={`https://www.youtube.com/embed/${video.id.videoId}`}
+                frameBorder="0"
+                allowFullScreen
+              ></iframe>
+                        <div>
+                        <p id="videoCaption">{video.snippet.title}</p>
+                          <p style={{color:"gray"}}>{formatViews(video.statistics.viewCount)} <sup style={{fontSize:"20px"}}>.</sup>   {formatUploadTime(video.snippet.publishedAt)}</p>
+                        </div>
+            </div>         
+          ))}
+          </div>
       </div>
+      
+    </div></section>
       </>
     );
   }

@@ -11,9 +11,8 @@ function App() {
   
   return (
     <div className="App">
-          <header>
             <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
-          </header>
+          
 
       <Video isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
     </div>

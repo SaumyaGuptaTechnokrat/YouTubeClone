@@ -99,9 +99,9 @@ function Video({ isOpen, toggleSidebar}) {
     gridTemplateColumns: gridTemplateColumns,
     justifyContent:'center',
     alignItems: 'center',
-    gap:'20px 20px'
+    gap:'2% 1%'
   };
-
+  
 
   const combineFunction = () =>{
     console.log("Combined Clicked");

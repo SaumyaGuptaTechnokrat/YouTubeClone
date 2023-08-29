@@ -126,3 +126,15 @@ iframe{
   max-width: 100%;
   /* Set a maximum width to prevent the title from pushing other content */
 }
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 60px;
+  left: 177px;
+}
+.sidebar-content span{
+  margin-bottom: 20px;
+}

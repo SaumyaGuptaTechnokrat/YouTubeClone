@@ -98,7 +98,7 @@ iframe{
 } */
 
 .main-content {
-  margin-left: 30px;
+  margin-left: 5%;
   transition: margin-left 0.3s ease;
 }
 
@@ -116,7 +116,7 @@ iframe{
 #sidebar{  
   width: 20px;
   background-color: rgb(39, 39, 39);
-  margin: 3px 0;
+  margin: 3px 1px;
 }
 #videoCaption{
   white-space: nowrap;

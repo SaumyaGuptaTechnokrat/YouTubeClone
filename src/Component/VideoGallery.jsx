@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Container, Row, Col } from 'react-bootstrap';
 import '../App.css';
 function Video({ isOpen, toggleSidebar}) {
     const [videos, setVideos] = useState([]);
@@ -43,7 +44,7 @@ function Video({ isOpen, toggleSidebar}) {
       };
       
     async function fetchVideos() {
-        const apiKey = 'AIzaSyAeLgA7VK2mJQ0wOq8cgTP4fh2DYKrDt78';
+        const apiKey = 'AIzaSyAXmVlq5xsBhEyZAKWfTewNMuBgUHUrhRE';
       try {
         const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
           params: {
@@ -78,99 +79,92 @@ function Video({ isOpen, toggleSidebar}) {
       }
     }
   
-    const handleSearchClick = () => {
-        document.getElementById("already").style.display='none';
-      fetchVideos();
+    const handleSearchClick = async () => {
+       fetchVideos();
     };
     useEffect(() => {
-      
+      //console.log(isActive);
         fetchVideos();
     
       }, []);
-      const [gridTemplateColumns, setgridTemplateColumns] = useState('320px 320px 320px 320px');
+      
+      const [isActive, setIsActive] = useState(false);
 
-  const handleClick = () => {
-    console.log("clicked");
-    setgridTemplateColumns(gridTemplateColumns === '320px 320px 320px 320px' ? '320px 320px 320px' : '320px 320px 320px 320px');
+  const toggleClassName = () => {
+    setIsActive(prevState => !prevState);
+    console.log(isActive);
   };
-
-  const divStyle = {
-    display:'grid',
-    gridTemplateColumns: gridTemplateColumns,
-    justifyContent:'center',
-    alignItems: 'center',
-    gap:'2% 1%'
-  };
-  
-
   const combineFunction = () =>{
     console.log("Combined Clicked");
-    handleClick();
     toggleSidebar();
+  //  handleReplaceClassName();
+  toggleClassName();
   };
       
     return (
       <>
       <div className="search-container">
-       <input
-          type="text"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          placeholder="Search videos" className="search-input"
-          onKeyDown={handleKeyPress}
+        <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search videos" className="search-input"
+            onKeyDown={handleKeyPress}
 
         />
-        <button className="search-button" onClick={handleSearchClick}><span class="material-symbols-outlined">
-search
-</span></button>
+          <button className="search-button" onClick={handleSearchClick}><span class="material-symbols-outlined">
+          search
+          </span></button>
 
-      <div className="keyboard-voice"><span class="material-symbols-outlined">
-keyboard_voice
-</span></div>
-       </div>
-      <div className={`main-content ${isOpen ? 'pushed' : ''}`}>
-        <button className="toggle-button" onClick={combineFunction}>
+                <div className="keyboard-voice"><span class="material-symbols-outlined">
+          keyboard_voice
+          </span></div>
+      </div>
+       <button className="toggle-button" onClick={combineFunction}>
         <div id="sidebar"></div>
-<div id="sidebar"></div>
-<div id="sidebar"></div> 
+        <div id="sidebar"></div>
+        <div id="sidebar"></div> 
       </button>
-       
-       <div></div>
-        <div style={divStyle} >
-        {video.map(i => (//for the videosearched through input box
-          <div key={i.id.videoId} className="video-item">
-            <iframe
-            title={video.snippet.title}
+      <div className={`main-content ${isOpen ? 'pushed' : ''}`}>
+        
+          <div className="container-fluid" style={{position:"relative", left:"2%"}}>
 
-              width="320px"
-              height="200px"
-              src={`https://www.youtube.com/embed/${i.id.videoId}`}
-              frameBorder="0"
-              allowFullScreen
-            ></iframe>
-                        <p>{i.snippet.title} </p>
+              <div className="row">
+              {video.map(i => (//for the videosearched through input box
+                <div key={i.id.videoId} className="col-md-3 mb-3">
+                  <iframe
+                  title={video.snippet.title}
 
+                    width="338px"
+                    height="190px"
+                    src={`https://www.youtube.com/embed/${i.id.videoId}`}
+                    frameBorder="0"
+                    allowFullScreen
+                  ></iframe>
+                              <p>{i.snippet.title} </p>
+
+                </div>
+              ))}
+              </div>
           </div>
-        ))}
-        </div>
-        <div style={divStyle}>
-        {videos.map(video => (//for default videos shown at the homepage
-            
-          <div key={video.id.videoId} style={{width:"320px"}}>
-            <iframe
-              title={video.snippet.title}
-              width="320px"
-              height="200px"
-              src={`https://www.youtube.com/embed/${video.id.videoId}`}
-              frameBorder="0"
-              allowFullScreen
-            ></iframe>
-                        <p id="videoCaption">{video.snippet.title}</p>
-                        <p style={{color:"gray"}}>{formatViews(video.statistics.viewCount)} <sup style={{fontSize:"20px"}}>.</sup>   {formatUploadTime(video.snippet.publishedAt)}</p>
+          <div className="container-fluid">
+            <div  className="row" id="already">
+            {videos.map(video => (//for default videos shown at the homepage
+                <div key={video.id.videoId}  className={isActive ? 'col-md-4 mb-3' : 'col-md-3 mb-3'} >
+                <iframe 
+                  title={video.snippet.title}
+                  width="338px"
+                  height="190px"
+                  src={`https://www.youtube.com/embed/${video.id.videoId}`}
+                  frameBorder="0"
+                  allowFullScreen
+                ></iframe>
+                            <p id="videoCaption">{video.snippet.title}</p>
+                            <p style={{color:"gray"}}>{formatViews(video.statistics.viewCount)} <sup style={{fontSize:"20px"}}>.</sup>   {formatUploadTime(video.snippet.publishedAt)}</p>
 
-          </div>
-        ))}
-
+              </div>         
+            ))}
+            </div>
         </div>
         
       </div>

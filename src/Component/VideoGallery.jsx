@@ -110,13 +110,8 @@ function Video({ isOpen, toggleSidebar}) {
   };
       
     return (
-      <div className={`main-content ${isOpen ? 'pushed' : ''}`}>
-        <button className="toggle-button" onClick={combineFunction}>
-        <div id="sidebar"></div>
-<div id="sidebar"></div>
-<div id="sidebar"></div> 
-      </button>
-       <div className="search-container">
+      <>
+      <div className="search-container">
        <input
           type="text"
           value={searchQuery}
@@ -133,6 +128,13 @@ search
 keyboard_voice
 </span></div>
        </div>
+      <div className={`main-content ${isOpen ? 'pushed' : ''}`}>
+        <button className="toggle-button" onClick={combineFunction}>
+        <div id="sidebar"></div>
+<div id="sidebar"></div>
+<div id="sidebar"></div> 
+      </button>
+       
        <div></div>
         <div style={divStyle} >
         {video.map(i => (//for the videosearched through input box
@@ -172,6 +174,7 @@ keyboard_voice
         </div>
         
       </div>
+      </>
     );
   }
   

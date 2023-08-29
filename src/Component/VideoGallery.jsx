@@ -102,7 +102,7 @@ function Video({ isOpen, toggleSidebar}) {
       
     return (
       <>
-      <div className="search-container">
+      <header><div className="search-container">
         <input
             type="text"
             value={searchQuery}
@@ -118,12 +118,12 @@ function Video({ isOpen, toggleSidebar}) {
                 <div className="keyboard-voice"><span class="material-symbols-outlined">
           keyboard_voice
           </span></div>
+      </div></header>
+      <div className="toggle-button-container" onClick={combineFunction}>
+          <div id="sidebar"></div>
+          <div id="sidebar"></div>
+          <div id="sidebar"></div> 
       </div>
-       <button className="toggle-button" onClick={combineFunction}>
-        <div id="sidebar"></div>
-        <div id="sidebar"></div>
-        <div id="sidebar"></div> 
-      </button>
       <div className={`main-content ${isOpen ? 'pushed' : ''}`}>
         
           <div className="container-fluid" style={{position:"relative", left:"2%"}}>
@@ -134,8 +134,8 @@ function Video({ isOpen, toggleSidebar}) {
                   <iframe
                   title={video.snippet.title}
 
-                    width="338px"
-                    height="190px"
+                    width="20vh "
+                    height="9.8958333333333vh"
                     src={`https://www.youtube.com/embed/${i.id.videoId}`}
                     frameBorder="0"
                     allowFullScreen
@@ -158,8 +158,10 @@ function Video({ isOpen, toggleSidebar}) {
                   frameBorder="0"
                   allowFullScreen
                 ></iframe>
-                            <p id="videoCaption">{video.snippet.title}</p>
+                          <div>
+                          <p id="videoCaption">{video.snippet.title}</p>
                             <p style={{color:"gray"}}>{formatViews(video.statistics.viewCount)} <sup style={{fontSize:"20px"}}>.</sup>   {formatUploadTime(video.snippet.publishedAt)}</p>
+                          </div>
               </div>         
             ))}
             </div>

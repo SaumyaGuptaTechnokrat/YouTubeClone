@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+  <style>body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+  }
+  
+  .menu-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+  
+  .line {
+    width: 30px;
+    background-color: #333;
+    margin: 3px 0;
+    transition: background-color 0.3s;
+    padding: 0.01vh;
+  }
+  
+  .menu-button:hover{
+    background-color: #c6c6c6;
+    border-radius: 100%;
+  }
+  </style>
+  <title>Menu Button</title>
+</head>
+<body>
+  <div class="menu-button">
+    <span class="line"></span>
+    <span class="line"></span>
+    <span class="line"></span>
+  </div>
+</body>
+</html>

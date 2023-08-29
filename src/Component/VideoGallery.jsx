@@ -2,7 +2,6 @@
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Container, Row, Col } from 'react-bootstrap';
 import '../App.css';
 function Video({ isOpen, toggleSidebar}) {
     const [videos, setVideos] = useState([]);
@@ -44,7 +43,7 @@ function Video({ isOpen, toggleSidebar}) {
       };
       
     async function fetchVideos() {
-        const apiKey = 'AIzaSyAXmVlq5xsBhEyZAKWfTewNMuBgUHUrhRE';
+        const apiKey = 'AIzaSyD8wv0OKoVoYP31O1z0OGMu4rr5aWQ-Z5A';
       try {
         const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
           params: {
@@ -142,7 +141,7 @@ function Video({ isOpen, toggleSidebar}) {
                     allowFullScreen
                   ></iframe>
                               <p>{i.snippet.title} </p>
-
+                              <div class="g-ytsubscribe" data-channel="GoogleDevelopers" data-layout="full" data-count="default"></div>
                 </div>
               ))}
               </div>
@@ -161,7 +160,6 @@ function Video({ isOpen, toggleSidebar}) {
                 ></iframe>
                             <p id="videoCaption">{video.snippet.title}</p>
                             <p style={{color:"gray"}}>{formatViews(video.statistics.viewCount)} <sup style={{fontSize:"20px"}}>.</sup>   {formatUploadTime(video.snippet.publishedAt)}</p>
-
               </div>         
             ))}
             </div>

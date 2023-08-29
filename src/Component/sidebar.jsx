@@ -8,18 +8,94 @@ function Sidebar({ isOpen, toggleSidebar }) {
     <div className={`sidebar ${isOpen ? 'open' : ''}`}>
       {/* Sidebar content */}
        <div className='sidebar-content'>
-       <span class="material-symbols-outlined">
-        home
-        </span>
-        <span class="material-symbols-outlined">
-        subscriptions
-        </span>
-        <span class="material-symbols-outlined">
-        video_library
-        </span>
-        <span class="material-symbols-outlined">
-history
-</span>
+       <div id='Home'>
+          <span class="material-symbols-outlined">
+            home
+          </span>
+          {/* <p>Home</p> */}
+       </div>
+        <div id="subscriptions">
+          <span class="material-symbols-outlined">
+          subscriptions
+          </span>
+        </div>
+        <div id='videolibrary'>
+          <span class="material-symbols-outlined">
+          video_library
+          </span>
+        </div>
+        <div id='history'>
+          <span class="material-symbols-outlined">
+           history
+          </span>
+          
+        </div>
+        <div>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+          .
+          <br/>
+        </div>
        </div>
     </div>
     </>

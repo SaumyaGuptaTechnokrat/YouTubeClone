@@ -7,6 +7,8 @@ function Video({ isOpen, toggleSidebar}) {
     const [videos, setVideos] = useState([]);
     const [searchQuery, setSearchQuery] = useState(''); // Default search query
     const [video,setVideo] = useState([]);
+    const [error, setError] = useState(null);
+
     const handleKeyPress = (event) => {
       if (event.key === 'Enter') {
         // Prevent the default form submission behavior
@@ -54,6 +56,7 @@ function Video({ isOpen, toggleSidebar}) {
             maxResults: 20,
           },
         });
+        
         const videoIds = response.data.items.map((item) => item.id.videoId).join(',');
         const statisticsResponse = await axios.get(
           `https://www.googleapis.com/youtube/v3/videos?key=${apiKey}&part=snippet,statistics&id=${videoIds}`
@@ -75,9 +78,14 @@ function Video({ isOpen, toggleSidebar}) {
         
       } catch (error) {
         console.error('Error fetching videos:', error);
+                setError(error);
+
+      }
+      if (error) {
+        return <div>Error: {error.message}</div>;
       }
     }
-  
+    
     const handleSearchClick = async () => {
        fetchVideos();
     };
@@ -134,8 +142,8 @@ function Video({ isOpen, toggleSidebar}) {
                 <iframe
                 title={video.snippet.title}
 
-                  width="20vh "
-                  height="9.8958333333333vh"
+                width="100%"
+                height="190vh"
                   src={`https://www.youtube.com/embed/${i.id.videoId}`}
                   frameBorder="0"
                   allowFullScreen
@@ -149,11 +157,11 @@ function Video({ isOpen, toggleSidebar}) {
         <div className="container-fluid">
           <div  className="row" id="already">
           {videos.map(video => (//for default videos shown at the homepage
-              <div key={video.id.videoId}  className={isActive ? 'col-md-4 mb-3' : 'col-md-3 mb-3'} >
+              <div key={video.id.videoId}  className={isActive ? 'col-lg-4' : 'col-md-3 mb-3'} >
               <iframe 
                 title={video.snippet.title}
-                width="338px"
-                height="190px"
+                width="100%"
+                height="190vh"
                 src={`https://www.youtube.com/embed/${video.id.videoId}`}
                 frameBorder="0"
                 allowFullScreen

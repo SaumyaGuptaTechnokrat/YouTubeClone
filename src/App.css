@@ -13,6 +13,7 @@
 iframe{
   border-radius:10px;
 }
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -89,12 +90,19 @@ iframe{
   width: 230px;
   height: 100%;
   background-color: white;
-  overflow-y:auto;
-  transition: left 0.3s ease;
+  
+    transition: left 0.3s ease;
 }
 
 .sidebar.open {
   left: 0;
+  /* overflow-y:auto;
+  white-space: nowrap; Prevent text from wrapping */
+}
+.open:hover{
+  left: 0;
+  overflow-y:auto;
+  white-space: nowrap; /* Prevent text from wrapping */
 }
 
 /* .close-button {
@@ -108,11 +116,13 @@ iframe{
   padding-top: 7%;
   margin-left: 5%;
   transition: margin-left 0.3s ease;
+  overflow-x: hidden;
 }
 
 .main-content.pushed {
   margin-left: 250px;
 }
+
 .toggle-button-container{
   display: flex;
     flex-direction: column;

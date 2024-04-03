@@ -187,7 +187,7 @@ iframe{
  .keyboard-voice{
   display: none;
  }
- .search-input{
+ .search-container{
   position: absolute;
   left:4px;
   /* width:70px; */

@@ -184,10 +184,13 @@ iframe{
     display: none;
   }
  */
+ .keyboard-voice{
+  display: none;
+ }
  .search-input{
-  position: relative;
-  left:1px;
-  width:70px;
+  position: absolute;
+  left:4px;
+  /* width:70px; */
  }
   iframe{
     width: 100%;

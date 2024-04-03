@@ -180,10 +180,10 @@ iframe{
   margin-bottom: 20px;
 }
 @media (max-width: 768px) {
-  header{
+/*   header{
     display: none;
   }
-
+ */
   iframe{
     width: 100%;
     object-fit: cover;

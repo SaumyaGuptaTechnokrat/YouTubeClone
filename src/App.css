@@ -187,10 +187,14 @@ iframe{
  .keyboard-voice{
   display: none;
  }
- .search-container{
+ .search-input{
   position: absolute;
   left:4px;
   /* width:70px; */
+ }
+ .search-button{
+  position: relative;
+  left: 1px;
  }
   iframe{
     width: 100%;

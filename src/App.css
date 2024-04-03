@@ -189,12 +189,12 @@ iframe{
  }
  .search-input{
   position: absolute;
-  left:24px;
+  left:5vw;
   /* width:70px; */
  }
  .search-button{
   position: relative;
-  left: 175px;
+  left: 13.523956723338486vw;
  }
   iframe{
     width: 100%;
@@ -205,6 +205,7 @@ iframe{
     margin-left: 0;
   }
   .container-fluid{
+    padding-top: 2vh;
     object-fit: cover;
     width: 100%;
   }

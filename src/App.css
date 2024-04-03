@@ -184,6 +184,11 @@ iframe{
     display: none;
   }
  */
+ .search-input{
+  position: relative;
+  left:1px;
+  width:70px;
+ }
   iframe{
     width: 100%;
     object-fit: cover;

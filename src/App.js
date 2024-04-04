@@ -3,20 +3,18 @@ import Video from './Component/VideoGallery';
 import Sidebar from './Component/sidebar';
 import { useState } from 'react';
 function App() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
+const [sidebarOpen, setSidebarOpen] = useState(false);
+const toggleSidebar = () => {
+setSidebarOpen(!sidebarOpen);
 
-  };  
-  
-  return (
-    <div className="App">
-            <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
-          
+}; 
+return (
+<div className="App">
+<Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
 
-      <Video isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
-    </div>
-  );
+<Video isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
+</div>
+);
 }
 
 export default App;

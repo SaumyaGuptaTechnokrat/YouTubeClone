@@ -8,7 +8,9 @@ function Video({ isOpen, toggleSidebar}) {
     const [searchQuery, setSearchQuery] = useState(''); // Default search query
     const [video,setVideo] = useState([]);
     const [error, setError] = useState(null);
-
+    const removeAmpersand = (text) => {
+      return text.replace(/&amp;/g, '&');
+      };
     const handleKeyPress = (event) => {
       if (event.key === 'Enter') {
         // Prevent the default form submission behavior
@@ -148,7 +150,8 @@ function Video({ isOpen, toggleSidebar}) {
                   frameBorder="0"
                   allowFullScreen
                 ></iframe>
-                            <p>{i.snippet.title} </p>
+                            {/* <p dangerouslySetInnerHTML={{ __html: removeAmpersand(i.snippet.title)}}> </p> */}
+                            <p dangerouslySetInnerHTML={{ __html: removeAmpersand(i.snippet.title) }}></p>
                             <div class="g-ytsubscribe" data-channel="GoogleDevelopers" data-layout="full" data-count="default"></div>
               </div>
             ))}
@@ -167,7 +170,8 @@ function Video({ isOpen, toggleSidebar}) {
                 allowFullScreen
               ></iframe>
                         <div>
-                        <p id="videoCaption">{video.snippet.title}</p>
+                        {/* <p id="videoCaption">{video.snippet.title}</p> */}
+                        <p dangerouslySetInnerHTML={{ __html: removeAmpersand(video.snippet.title) }}></p>
                           <p style={{color:"gray"}}>{formatViews(video.statistics.viewCount)} <sup style={{fontSize:"20px"}}>.</sup>   {formatUploadTime(video.snippet.publishedAt)}</p>
                         </div>
             </div>         

@@ -223,13 +223,13 @@ iframe{
 @media (min-width:480px) and (max-width: 768px) {
   .search-input{
     position: absolute;
-    left:15vw;
-    width:15vh;
+    left:20vw;
+    width:40vh;
     /* width:70px; */
    }
    .search-button{
     position: relative;
-    left: 70.23956723338486vw;
+    left: 55.23956723338486vw;
    }
 }
 @media (min-width:768px) and (max-width:1448px) {

@@ -47,7 +47,7 @@ function Video({ isOpen, toggleSidebar}) {
       };
       
     async function fetchVideos() {
-        const apiKey = 'AIzaSyD8wv0OKoVoYP31O1z0OGMu4rr5aWQ-Z5A';
+        const apiKey = 'AIzaSyAXmVlq5xsBhEyZAKWfTewNMuBgUHUrhRE';
       try {
         const response = await axios.get('https://www.googleapis.com/youtube/v3/search', {
           params: {
